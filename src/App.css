@@ -1,0 +1,106 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #2c3038;
+  color: white;
+}
+
+.app {
+  min-height: 100vh;
+  padding: 24px;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 24px;
+  font-size: 32px;
+}
+
+.periodic-table {
+  display: grid;
+  grid-template-columns: repeat(18, 64px);
+  grid-template-rows: repeat(10, 64px);
+  gap: 6px;
+  justify-content: center;
+}
+
+.element-card {
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #111;
+  transition: transform 0.2s ease;
+}
+
+.element-card:hover {
+  transform: scale(1.08);
+  z-index: 2;
+}
+
+.element-number {
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.element-symbol {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.element-name {
+  font-size: 9px;
+  text-align: center;
+  line-height: 1.1;
+}
+
+.alkali-metal {
+  background: #f87171;
+}
+
+.alkaline-earth-metal {
+  background: #fde68a;
+}
+
+.transition-metal {
+  background: #e5e7eb;
+}
+
+.post-transition-metal {
+  background: #93c5fd;
+}
+
+.metalloid {
+  background: #86efac;
+}
+
+.nonmetal {
+  background: #4ade80;
+}
+
+.halogen {
+  background: #d9f99d;
+}
+
+.noble-gas {
+  background: #7dd3fc;
+}
+
+.lanthanide {
+  background: #c4b5fd;
+}
+
+.actinide {
+  background: #f9a8d4;
+}
+
+.unknown {
+  background: #d1d5db;
+}
