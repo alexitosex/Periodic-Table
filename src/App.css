@@ -4,9 +4,69 @@
 
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #2c3038;
+  font-family: monospace, sans-serif;
   color: white;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(0, 200, 255, 0.18), transparent 25%),
+    radial-gradient(circle at 80% 30%, rgba(0, 255, 170, 0.12), transparent 25%),
+    linear-gradient(135deg, #081420, #0d2236, #09111a);
+  background-size: 200% 200%, 200% 200%, 200% 200%;
+  animation: move-background 18s ease infinite;
+}
+
+body::before{
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image: 
+    linear-gradient(rgba(0, 200, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 200, 255, 0.04) 1px, transparent 1px);
+  
+  background-size: 40px 40px;
+  animation: grid-fade .6s ease-in-out infinite alternate;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+}
+
+.bg-particles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(70px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.orb-1 {
+  width: 420px; height: 420px;
+  background: radial-gradient(circle, rgba(0, 200, 255, 0.22), transparent 70%);
+  top: -100px; left: -80px;
+  animation: drift-1 20s linear infinite;
+}
+
+.orb-2 {
+  width: 320px; height: 320px;
+  background: radial-gradient(circle, rgba(0, 255, 170, 0.16), transparent 70%);
+  top: 5%; right: -60px;
+  animation: drift-2 26s linear infinite;
+}
+
+.orb-3 {
+  width: 260px; height: 260px;
+  background: radial-gradient(circle, rgba(120, 80, 255, 0.14), transparent 70%);
+  bottom: -60px; left: 35%;
+  animation: drift-3 22s linear infinite;
 }
 
 .app {
@@ -37,6 +97,15 @@ body {
   justify-content: space-between;
   color: #111;
   transition: transform 0.2s ease;
+
+  background-image: 
+    linear-gradient(
+      to bottom right,
+      rgba(0, 0, 0, 0.25),
+      rgb(0, 0, 0, .4)
+    );
+
+  background-blend-mode: multiply;
 }
 
 .element-card:hover {
@@ -62,45 +131,77 @@ body {
 }
 
 .alkali-metal {
-  background: #f87171;
+  background-color: #f87171;
 }
 
 .alkaline-earth-metal {
-  background: #fde68a;
+  background-color: #fde68a;
 }
 
 .transition-metal {
-  background: #e5e7eb;
+  background-color: #e5e7eb;
 }
 
 .post-transition-metal {
-  background: #93c5fd;
+  background-color: #93c5fd;
 }
 
 .metalloid {
-  background: #86efac;
+  background-color: #86efac;
 }
 
 .nonmetal {
-  background: #4ade80;
+  background-color: #4ade80;
 }
 
 .halogen {
-  background: #d9f99d;
+  background-color: #d9f99d;
 }
 
 .noble-gas {
-  background: #7dd3fc;
+  background-color: #7dd3fc;
 }
 
 .lanthanide {
-  background: #c4b5fd;
+  background-color: #c4b5fd;
 }
 
 .actinide {
-  background: #f9a8d4;
+  background-color: #f9a8d4;
 }
 
 .unknown {
-  background: #d1d5db;
+  background-color: #d1d5db;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes grid-fade {
+  from { opacity: .5; }
+  to { opacity: 1; }
+}
+
+@keyframes drift-1 {
+  0%   { transform: translate(0px, 0px) scale(1); }
+  25%  { transform: translate(40px, 30px) scale(1.08); }
+  50%  { transform: translate(20px, 60px) scale(0.95); }
+  75%  { transform: translate(-20px, 30px) scale(1.04); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+
+@keyframes drift-2 {
+  0%   { transform: translate(0px, 0px) scale(1); }
+  30%  { transform: translate(-30px, 40px) scale(1.1); }
+  60%  { transform: translate(-50px, 10px) scale(0.92); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+
+@keyframes drift-3 {
+  0%   { transform: translate(0px, 0px) scale(1); }
+  40%  { transform: translate(50px, -30px) scale(1.06); }
+  70%  { transform: translate(20px, -50px) scale(0.98); }
+  100% { transform: translate(0px, 0px) scale(1); }
 }
