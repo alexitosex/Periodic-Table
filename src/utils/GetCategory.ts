@@ -1,4 +1,4 @@
-import type { ElementType } from "./types/Element"
+import type { ElementType } from "../types/Element"
 
 export const getCategory = (el: ElementType) => {
 
@@ -60,7 +60,7 @@ export const getCategory = (el: ElementType) => {
     return "nonmetal"
   }
 
-  // otros metales
+  // otros metales, agrupados con metales de transicion por la lista de clase
   if (
     el.symbol === "Al" ||
     el.symbol === "Ga" ||
@@ -75,7 +75,7 @@ export const getCategory = (el: ElementType) => {
     el.symbol === "Mc" ||
     el.symbol === "Lv"
   ) {
-    return "post-transition-metal"
+    return "transition-metal"
   }
 
   return "nonmetal"
